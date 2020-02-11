@@ -8,7 +8,7 @@ const auth = require('../../middlewares/authorization')
 
 // Authentication example
 router.get('/list', auth(), routinesController.list);
-router.post('/list', auth(), routinesController.routines_post);
+router.patch('/list', auth(), routinesController.routines_post);
 router.delete('/delete', auth(), routinesController.routines_post_delete);
 
 router.get('/rss', auth(), rssController.rss);
