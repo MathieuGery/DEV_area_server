@@ -1,0 +1,11 @@
+{
+  "client": {
+    "host": ""
+  },
+  "server": {
+    "current_time": 0,
+    "services": [{
+
+    }]
+  }
+}

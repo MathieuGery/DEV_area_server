@@ -1,0 +1,52 @@
+{
+  "client": {
+    "host": "10.0.0.127"
+  },
+  "server": {
+    "current_time": 0,
+    "services": [{
+      "name": "Epitech Intranet",
+      "picture": "assets/intra.png",
+      "actions": [{
+        "name": "new_project_subscription",
+        "description": "The user signs up for a project"
+      }, {
+          "name": "new_project_subscription",
+          "description": "The user signs up for a project"
+      }
+      ],
+      "reactions": [{
+        "name": "activity_subscribe",
+        "description": "The user signs up for an activity"
+      }, {"name": "module_subscribe",
+          "description": "The user signs up for a unit"
+      }]
+    }, {
+      "name": "Twitter",
+      "picture": "assets/twitter.png",
+      "actions": [{
+        "name": "new_tweet",
+        "description": "The user tweets something new"
+      }],
+      "reactions": [{
+        "name": "new_tweet",
+        "description": "The user tweets something new"
+      }, {"name": "new_retweet",
+          "description": "The user retweet someone else's tweet"
+      }]
+    }, {
+      "name": "Imgur",
+      "picture": "assets/imgur.png",
+      "actions": [{
+        "name": "new_post",
+        "description": "The user post something new"
+      }],
+      "reactions": [{
+        "name": "new_post",
+        "description": "The user post something new"
+      }, {"name": "new_like",
+          "description": "The user likes someone else's post"
+      }]
+    }]
+  }
+}
