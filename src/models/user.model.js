@@ -37,6 +37,11 @@ const userSchema = new Schema({
         default: 'user',
         enum: roles
     },
+    routines_list: [{
+        name: { type: String, default: 'test' },
+        actionService: { type: String, default: 'intra'},
+        active: { type: Boolean, default: false}
+    }],
 }, {
     timestamps: true
 })

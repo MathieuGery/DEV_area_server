@@ -2,14 +2,14 @@
 
 const express = require('express')
 const router = express.Router()
-const weatherController = require('../../controllers/weather.controller')
+const routinesController = require('../../controllers/routines.controller')
 const rssController = require('../../controllers/rss.controller')
 const auth = require('../../middlewares/authorization')
 
 // Authentication example
-router.get('/weather', auth(), weatherController.weather);
-router.get('/weather/city', auth(), weatherController.weather_get_city);
-router.post('/weather/city', auth(), weatherController.weather_post_city);
+router.get('/list', auth(), routinesController.list);
+router.post('/list', auth(), routinesController.routines_post);
+router.post('/delete', auth(), routinesController.routines_post_delete);
 
 router.get('/rss', auth(), rssController.rss);
 router.post('/rss/link', auth(), rssController.rss_post_link);

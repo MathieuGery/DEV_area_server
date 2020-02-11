@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const authRouter = require('./auth.route');
-const servicesRouter = require('./service.route');
+const routinesRouter = require('./routines.route');
 const aboutjson = require('../../controllers/about.controller');
 
 router.get('/status', (req, res) => {
@@ -26,5 +26,5 @@ router.get('/about.json', (req, res) => {
     }
 });
 router.use('/auth', authRouter); // mount auth paths
-router.use('/services', servicesRouter);
+router.use('/routines', routinesRouter);
 module.exports = router;
