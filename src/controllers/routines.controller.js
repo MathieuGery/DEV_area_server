@@ -62,7 +62,7 @@ exports.routines_post_delete = async function routines_post_delete(req, res) {
     }
 };
 
-exports.routines_post_edit = async function routines_post_edit(req, res) {
+exports.routines_patch_edit = async function routines_patch_edit(req, res) {
     const q = req.query;
     if (!q.id) {
         return res.status(400).json({
@@ -71,8 +71,7 @@ exports.routines_post_edit = async function routines_post_edit(req, res) {
     }
     try {
         var user = req.user;
-        someArray2 = user.routines_list.filter( el => el.id !== q.id );
-        user.routines_list = someArray2;
+        user.routines_list.find( el => el.id === q.id ).active = q.active;
         user.save(function (err) {
             console.log(err)
         });
