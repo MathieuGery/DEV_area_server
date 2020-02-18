@@ -7,4 +7,10 @@ const app = require('./services/express')
 app.start()
 mongoose.connect()
 
+function intervalFunc() {
+    console.log('Cant stop me now!');
+}
+
+setInterval(intervalFunc, 1500);
+
 module.exports = app
