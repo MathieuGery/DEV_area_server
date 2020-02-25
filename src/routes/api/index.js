@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const authRouter = require('./auth.route');
 const routinesRouter = require('./routines.route');
-const servicesRouter = require('./services.route')
+const servicesRouter = require('./services.route');
 
 router.get('/status', (req, res) => {
     res.send({status: 'OK'})
@@ -12,7 +12,7 @@ router.get('/status', (req, res) => {
 router.get('/about.json', (req, res) => {
     try {
         const aboutFile = require('../../about.json');
-        console.log(aboutFile)
+        console.log(aboutFile);
         aboutFile.client.host = req.ip;
         if (aboutFile.client.host.substr(0, 7) === "::ffff:") {
             aboutFile.client.host = aboutFile.client.host.substr(7)

@@ -1,7 +1,3 @@
-const superagent = require('superagent');
-const burl = "api.openweathermap.org/data/2.5/weather";
-const appid_weather = "5395bcad51f4b37afe5b814977728a96";
-
 exports.list = async function weather_get_city(req, res) {
     var result = {
         status: 'succed',
@@ -52,6 +48,7 @@ exports.routines_post_delete = async function routines_post_delete(req, res) {
         });
         var result = {
             status: 'succed',
+            message: 'Routine successfully deleted',
             routines_list: req.user.routines_list
         };
         return res.status(200).json(result);

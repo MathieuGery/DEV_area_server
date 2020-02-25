@@ -6,6 +6,7 @@
     "current_time": 0,
     "services": [{
       "name": "Epitech Intranet",
+      "id": "intra",
       "picture": "assets/intra.png",
       "actions": [{
         "name": "new_project_subscription",
@@ -23,6 +24,7 @@
       }]
     }, {
       "name": "Twitter",
+      "id": "twitter",
       "picture": "assets/twitter.png",
       "actions": [{
         "name": "new_tweet",
@@ -36,6 +38,7 @@
       }]
     }, {
       "name": "Imgur",
+      "id": "imgur",
       "picture": "assets/imgur.png",
       "actions": [{
         "name": "new_post",

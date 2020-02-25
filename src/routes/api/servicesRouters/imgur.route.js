@@ -3,8 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../../../middlewares/authorization');
-const intraController = require('../../../controllers/services/intra.controller');
+const imgurController = require('../../../controllers/services/imgur.controller');
 
-router.get('/alerts', auth(), intraController.alerts);
-
+router.get('/status', auth(), imgurController.status);
 module.exports = router;
