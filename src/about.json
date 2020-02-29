@@ -4,52 +4,122 @@
   },
   "server": {
     "current_time": 0,
-    "services": [{
-      "name": "Epitech Intranet",
-      "id": "intra",
-      "picture": "assets/intra.png",
-      "actions": [{
-        "name": "new_project_subscription",
-        "description": "The user signs up for a project"
-      }, {
-          "name": "new_project_subscription",
-          "description": "The user signs up for a project"
+
+    "services": [
+
+      {
+        "name": "Epitech Intranet",
+        "id": "intra",
+        "picture": "assets/intra.png",
+        "actions": [
+          {
+            "name": "new_project_subscription",
+            "description": "The user signs up for a project"
+          },
+          {
+            "name": "new_project_subscription",
+            "description": "The user signs up for a project"
+          }
+        ],
+        "reactions": [
+          {
+            "name": "activity_subscribe",
+            "description": "The user signs up for an activity"
+          },
+          {
+            "name": "module_subscribe",
+            "description": "The user signs up for a unit"
+          }
+        ]
+      },
+
+      {
+        "name": "Twitter",
+        "id": "twitter",
+        "picture": "assets/twitter.png",
+        "actions": [
+          {
+            "name": "new_tweet",
+            "description": "The user tweets something new"
+          }
+        ],
+        "reactions": [
+          {
+            "name": "new_tweet",
+            "description": "The user tweets something new"
+          },
+          {
+            "name": "new_retweet",
+            "description": "The user retweet someone else's tweet"
+          }
+        ]
+      },
+
+      {
+        "name": "Imgur",
+        "id": "imgur",
+        "picture": "assets/imgur.png",
+        "actions": [
+          {
+            "name": "new_post",
+            "description": "The user post something new"
+          }
+        ],
+        "reactions": [
+          {
+            "name": "new_post",
+            "description": "The user post something new"
+          },
+          {
+            "name": "new_like",
+            "description": "The user likes someone else's post"
+          }
+        ]
+      },
+
+      {
+        "name": "Spotify",
+        "id": "spotify",
+        "picture": "assets/spotify.png",
+        "actions": [
+          {
+            "name": "new_song",
+            "description": "The user add a new song to a playlist"
+          }
+        ],
+        "reactions": [
+          {
+            "name": "new_song",
+            "description": "The user add a new song to a playlist"
+          },
+          {
+            "name": "like_song",
+            "description": "The user likes a song"
+          }
+        ]
+      },
+
+      {
+        "name": "Reddit",
+        "id": "reddit",
+        "picture": "assets/reddit.png",
+        "actions": [
+          {
+            "name": "new_post",
+            "description": "The user post something new"
+          }
+        ],
+        "reactions": [
+          {
+            "name": "new_post",
+            "description": "The user post something new"
+          },
+          {
+            "name": "new_up",
+            "description": "The user up a new post"
+          }
+        ]
       }
-      ],
-      "reactions": [{
-        "name": "activity_subscribe",
-        "description": "The user signs up for an activity"
-      }, {"name": "module_subscribe",
-          "description": "The user signs up for a unit"
-      }]
-    }, {
-      "name": "Twitter",
-      "id": "twitter",
-      "picture": "assets/twitter.png",
-      "actions": [{
-        "name": "new_tweet",
-        "description": "The user tweets something new"
-      }],
-      "reactions": [{
-        "name": "new_tweet",
-        "description": "The user tweets something new"
-      }, {"name": "new_retweet",
-          "description": "The user retweet someone else's tweet"
-      }]
-    }, {
-      "name": "Imgur",
-      "id": "imgur",
-      "picture": "assets/imgur.png",
-      "actions": [{
-        "name": "new_post",
-        "description": "The user post something new"
-      }],
-      "reactions": [{
-        "name": "new_post",
-        "description": "The user post something new"
-      }, {"name": "new_like",
-          "description": "The user likes someone else's post"
-      }]
-    }]
+    ]
   }
 }

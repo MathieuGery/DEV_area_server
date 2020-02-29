@@ -38,13 +38,20 @@ const userSchema = new Schema({
         enum: roles
     },
     routines_list: [{
-        name: { type: String, default: 'test' },
-        actionService: { type: String, default: 'intra'},
-        active: { type: Boolean, default: false}
+        name: {type: String, default: 'New routine name'},
+        actionService: {type: String, default: 'twitter'},
+        reactionService: {type: String, default: 'imgur'},
+        actionTrigger: {type: String, default: 'new_tweet'},
+        reactionTrigger: {type: String, default: 'new_post'},
+        active: {type: Boolean, default: false}
     }],
+    access_token_list: [{
+        id: {type: 'String'},
+        access_token: {type: 'String'}
+    }]
 }, {
     timestamps: true
-})
+});
 
 userSchema.pre('save', async function save(next) {
     try {
