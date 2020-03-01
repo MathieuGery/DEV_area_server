@@ -28,7 +28,7 @@ exports.getUserPosts = async function get_intra_alerts(req, res) {
     console.log(req.user.access_token_list.find(el => el.id === 'imgur').access_token);
     setInterval(function () {
         set_user_posts_number(req.user.access_token_list.find(el => el.id === 'imgur').username, req.user.access_token_list.find(el => el.id === 'imgur').access_token);
-    }, 1500);
+    }, 100000);
     return res.status(200).json({text: 'corectly set trigger'});
 };
 
