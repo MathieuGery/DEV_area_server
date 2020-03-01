@@ -4,9 +4,7 @@
   },
   "server": {
     "current_time": 0,
-
     "services": [
-
       {
         "name": "Epitech Intranet",
         "id": "intra",
@@ -32,7 +30,6 @@
           }
         ]
       },
-
       {
         "name": "Twitter",
         "id": "twitter",
@@ -54,7 +51,6 @@
           }
         ]
       },
-
       {
         "name": "Imgur",
         "id": "imgur",
@@ -76,7 +72,6 @@
           }
         ]
       },
-
       {
         "name": "Spotify",
         "id": "spotify",
@@ -98,7 +93,6 @@
           }
         ]
       },
-
       {
         "name": "Reddit",
         "id": "reddit",

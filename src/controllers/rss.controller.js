@@ -13,12 +13,12 @@ exports.rss_post_link = async function rss_post_link(req, res) {
         var user = req.user;
         user.rss_link = q;
         user.save(function (err) {
-        })
+        });
         var result = {
             status: 'succed',
             user: req.user.email,
             link: req.user.rss_link
-        }
+        };
         return res.status(200).json(result);
     } catch (e) {
         return res.status(400).json({
@@ -28,7 +28,7 @@ exports.rss_post_link = async function rss_post_link(req, res) {
 };
 
 exports.rss = async function rss(req, res) {
-    const ret = []
+    const ret = [];
     await parser.parseURL(req.user.rss_link)
         .then((response) => {
             response.items.forEach(item => {
@@ -39,4 +39,4 @@ exports.rss = async function rss(req, res) {
         .catch((error) => {
             return res.status(400).json(error)
         });
-}
+};

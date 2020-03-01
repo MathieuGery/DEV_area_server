@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 
-const Joi = require('joi')
+const Joi = require('joi');
 
 // User validation rules
 module.exports = {
@@ -10,4 +10,4 @@ module.exports = {
             password: Joi.string().min(6).max(128).required(),
         }
     }
-}
+};

@@ -1,31 +1,30 @@
-
 exports.about = async function rss(req, res) {
     const ret = {
         " client ": {
             " host ": "10.101.53.35"
         },
         " server ": {
-            " current_time ": 1531680780 ,
+            " current_time ": 1531680780,
             " services ": [{
-                " name ": " weather " ,
+                " name ": " weather ",
                 " widgets ": [{
-                    " name ": " city_temperature " ,
-                    " description ": " Display temperature for a city " ,
+                    " name ": " city_temperature ",
+                    " description ": " Display temperature for a city ",
                     " params ": [{
-                        " name ": " city " ,
+                        " name ": " city ",
                         " type ": " string "
                     }]
                 }]
-            } , {
-                " name ": " rss " ,
+            }, {
+                " name ": " rss ",
                 " widgets ": [{
-                    " name ": " article_list " ,
-                    " description ": " Displaying the list of the last articles " ,
+                    " name ": " article_list ",
+                    " description ": " Displaying the list of the last articles ",
                     " params ": [{
-                        " name ": " link " ,
+                        " name ": " link ",
                         " type ": " string "
-                    },{
-                        " name ": " number " ,
+                    }, {
+                        " name ": " number ",
                         " type ": " integer "
                     }]
                 }]
