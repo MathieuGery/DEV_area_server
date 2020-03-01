@@ -47,8 +47,12 @@ const userSchema = new Schema({
     }],
     access_token_list: [{
         id: {type: 'String'},
-        access_token: {type: 'String'}
-    }]
+        access_token: {type: 'String'},
+        username: {type: 'String'}
+    }],
+    imgur_picture_number : [{
+        number: 0,
+    }],
 }, {
     timestamps: true
 });

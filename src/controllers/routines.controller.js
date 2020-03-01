@@ -26,7 +26,7 @@ exports.routines_post_add = async function routines_post_add(req, res) {
         return res.status(200).json(result);
     } catch (e) {
         return res.status(400).json({
-            message: "Invalid routine creaction"
+            message: "Invalid routine creation"
         });
     }
 };

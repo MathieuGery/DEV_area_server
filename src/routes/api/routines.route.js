@@ -14,5 +14,4 @@ router.patch('/edit', auth(), routinesController.routines_patch_edit);
 
 router.get('/rss', auth(), rssController.rss);
 router.post('/rss/link', auth(), rssController.rss_post_link);
-
 module.exports = router;
