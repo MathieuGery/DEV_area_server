@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../config');
 const httpStatus = require('http-status');
 const uuidv1 = require('uuid/v1');
+const cronTrigger = require('./services/imgur.controller')
 
 exports.register = async (req, res, next) => {
     try {
@@ -14,7 +15,7 @@ exports.register = async (req, res, next) => {
         const user = new User(body);
         const savedUser = await user.save();
         res.status(httpStatus.CREATED);
-        res.send(savedUser.transform())
+        res.send(savedUser.transform());
     } catch (error) {
         return next(User.checkDuplicateEmailError(error))
     }

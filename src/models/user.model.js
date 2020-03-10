@@ -43,6 +43,7 @@ const userSchema = new Schema({
         reactionService: {type: String, default: 'imgur'},
         actionTrigger: {type: String, default: 'new_tweet'},
         reactionTrigger: {type: String, default: 'new_post'},
+        params: [{type: String, default: ''}],
         active: {type: Boolean, default: false}
     }],
     access_token_list: [{
@@ -50,9 +51,10 @@ const userSchema = new Schema({
         access_token: {type: 'String'},
         username: {type: 'String'}
     }],
-    imgur_picture_number : [{
-        number: 0,
-    }],
+    data: {
+        number_image_imgur: {type: String, default: 0},
+        bio_imgur: {type: String, default:''}
+    },
 }, {
     timestamps: true
 });
