@@ -25,8 +25,7 @@ router.post('/setToken', auth(), (req, res) => {
         if (access_token_elem) {
             access_token_elem.access_token = q.access_token;
             access_token_elem.username = q.username;
-        }
-        else
+        } else
             user.access_token_list.push(q);
         user.save(function (err) {
             console.log(err)

@@ -15,10 +15,10 @@ function spotifyapi(token) {
     spotifyApi.setAccessToken();
     spotifyApi.followPlaylist('5ieJqeLJjjI8iJWaxeBLuK',
         {
-            'public' : false
-        }).then(function(data) {
+            'public': false
+        }).then(function (data) {
         console.log('Playlist successfully followed privately!');
-    }, function(err) {
+    }, function (err) {
         console.log('Something went wrong!', err);
     });
 }

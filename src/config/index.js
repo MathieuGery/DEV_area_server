@@ -6,6 +6,7 @@ module.exports = {
     env: process.env.NODE_ENV,
     secret: process.env.SECRET,
     hostname: process.env.HOSTNAME,
+    interval: process.env.CRONINTERVAL,
     mongo: {
         uri: process.env.MONGOURI,
         testURI: process.env.MONGOTESTURI

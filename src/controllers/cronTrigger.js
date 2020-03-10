@@ -1,10 +1,11 @@
 const User = require('../models/user.model');
 const imgurAPI = require('./services/imgur.controller');
+const config = require('../config');
 
 exports.activeTriggers = async function activeTriggers(req, res) {
     setInterval(function () {
         cronTrigger(req);
-    }, 10000);
+    }, config.interval);
     return res.status(200).json({text: 'corectly active routines'});
 };
 

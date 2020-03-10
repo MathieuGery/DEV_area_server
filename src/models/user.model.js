@@ -53,7 +53,7 @@ const userSchema = new Schema({
     }],
     data: {
         number_image_imgur: {type: String, default: 0},
-        bio_imgur: {type: String, default:''}
+        bio_imgur: {type: String, default: ''}
     },
 }, {
     timestamps: true
