@@ -9,9 +9,10 @@ exports.status = async function get_status_imgur(req, res) {
     return res.status(200).json({text: 'succed user connected'});
 };
 
-function changeBio(username, access_token, nb_images) {
-    superagent.put(`${url}3/account/` + username + '/settings')
-        .send({bio: 'I have uploaded ' + nb_images + ' images thanks to bossarea'})
+exports.postImg = function postImg(doc, reactionParams, par) {
+    let access_token = doc.access_token_list.find(el => el.id === 'imgur').access_token;
+    superagent.put(`${url}3/upload/`)
+        .send({image: par.image})
         .set({Authorization: 'Bearer ' + access_token})
         .end((err, resp) => {
             if (err) {
@@ -19,7 +20,21 @@ function changeBio(username, access_token, nb_images) {
             }
             console.log(resp.body);
         });
-}
+};
+
+exports.changeBio = function changeBio(doc, reactionParams, par) {
+    let username = doc.access_token_list.find(el => el.id === 'imgur').username;
+    let access_token = doc.access_token_list.find(el => el.id === 'imgur').access_token;
+    superagent.put(`${url}3/account/` + username + '/settings')
+        .send({bio: 'I have uploaded ' + doc.data.nbPostImgImgur + ' images thanks to bossarea'})
+        .set({Authorization: 'Bearer ' + access_token})
+        .end((err, resp) => {
+            if (err) {
+                console.log(resp.body);
+            }
+            console.log(resp.body);
+        });
+};
 
 exports.checkImgurNewPost = function checkImgurNewPost(doc, actionParams) {
     let ret = {status: false};
@@ -34,6 +49,7 @@ exports.checkImgurNewPost = function checkImgurNewPost(doc, actionParams) {
     config['url'] = `${url}3/account/` + username + '/images/count';
 
     return axios(config).then((res) => {
+        console.log(doc.data.nbPostImgImgur)
         if (doc.data.nbPostImgImgur < res.data.data) {
             doc.data.nbPostImgImgur = res.data.data;
             doc.save(function (err) {
