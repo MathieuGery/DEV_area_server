@@ -1,6 +1,15 @@
+const config = require('../config');
 const User = require('../models/user.model');
 const imgurAPI = require('./services/imgur.controller');
-const config = require('../config');
+const ytbAPI = require('./services/youtube.controller');
+
+const actionDico = [
+    {id: "imgur:user_new_post", value: imgurAPI.checkImgurNewPost},
+    {id: "youtube:new_like", value: ytbAPI.checkLikedVids}
+];
+//const reactionDico = [
+//    {id: "imgur:new_post", value: imgurAPI.postImg}
+//];
 
 exports.activeTriggers = async function activeTriggers(req, res) {
     setInterval(function () {
@@ -10,14 +19,18 @@ exports.activeTriggers = async function activeTriggers(req, res) {
 };
 
 function cronTrigger(req) {
+
     User.findOne({email: req.user.email}, function (err, doc) {
-            if (doc.access_token_list.find(el => el.id === 'imgur')) {
-                if (doc.routines_list.find(el => el.actionService === 'imgur' && el.reactionService === 'imgur').active) {
-                    if (doc.routines_list.find(el => el.actionTrigger === 'user_new_post' && el.reactionTrigger === 'new_like')) {
-                        imgurAPI.getImgImgurAndChangeBio(doc, req)
+            doc.routines_list.forEach(routine => {
+                if (routine.active) {
+                    const actionRes = actionDico.find(el => el.id === routine.actionService + ':' + routine.actionTrigger).value(doc, routine.actionParams).then((res) => {
+                        console.log(res)
+                    });
+                    if (actionRes.status === true) {
+                        console.log("ca fait un truc")
                     }
                 }
-            }
+            })
         }
     )
 }

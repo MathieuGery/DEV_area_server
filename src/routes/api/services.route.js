@@ -11,6 +11,38 @@ router.use('/intra', intraRouter);
 router.use('/imgur', imgurRouter);
 router.use('/spotify', spotifyRouter);
 
+router.get('/isauth', auth(), (req, res) => {
+    const q = req.query;
+    let user = req.user;
+
+    if (!q.service) {
+        return res.status(400).json({
+            text: "Missing parameters service"
+        });
+    }
+    try {
+        let token = user.access_token_list.find(el => el.id === q.service).access_token;
+        console.log(token)
+        if (token) {
+            let result = {
+                status: 'succed',
+            };
+            return res.status(200).json(result);
+        } else {
+            let result = {
+                status: 'not authenticate to ' + q.service,
+            };
+            return res.status(400).json(result);
+        }
+    } catch(e)
+    {
+        let result = {
+            status: 'not authenticate to ' + q.service,
+        };
+        return res.status(400).json(result);
+    }
+});
+
 router.post('/setToken', auth(), (req, res) => {
     const q = req.query;
     console.log(q);

@@ -1,5 +1,6 @@
 const superagent = require('superagent');
 const url = "https://api.imgur.com/";
+const axios = require('axios');
 
 exports.status = async function get_status_imgur(req, res) {
     if (!user.access_token_list.find(el => el.id === 'imgur')) {
@@ -20,24 +21,28 @@ function changeBio(username, access_token, nb_images) {
         });
 }
 
-exports.getImgImgurAndChangeBio = function getImgImgurAndChangeBio(doc, req) {
+exports.checkImgurNewPost = function checkImgurNewPost(doc, actionParams) {
+    let ret = {status: false};
     let username = doc.access_token_list.find(el => el.id === 'imgur').username;
     let access_token = doc.access_token_list.find(el => el.id === 'imgur').access_token;
+    let config = {};
+    let header = {};
 
-    superagent.get(`${url}3/account/` + username + '/images/count')
-        .set({Authorization: 'Bearer ' + access_token})
-        .end((err, resp) => {
-            if (err) {
-                console.log(resp.body);
-            }
-            console.log(resp.body);
-            console.log(doc.data.nbPostImgImgur);
-            if (doc.data.nbPostImgImgur < resp.body.data) {
-                req.user.data.nbPostImgImgur = resp.body.data;
-                req.user.save(function (err) {
-                    console.log(err)
-                });
-                changeBio(username, access_token, resp.body.data);
-            }
-        });
+    header['Authorization'] = 'Bearer ' + access_token;
+    config['headers'] = header;
+    config['method'] = 'GET';
+    config['url'] = `${url}3/account/` + username + '/images/count';
+
+    return axios(config).then((res) => {
+        if (doc.data.nbPostImgImgur < res.data.data) {
+            doc.data.nbPostImgImgur = res.data.data;
+            doc.save(function (err) {
+                console.log(err)
+            });
+            return {status: true};
+        }
+        return {status: false};
+    }).catch((error) => {
+        console.log(error.response)
+    });
 };
