@@ -1,3 +1,5 @@
+const about = require('../about');
+
 exports.list = async function routines_get_list(req, res) {
     let result = {
         status: 'success',
@@ -9,10 +11,12 @@ exports.list = async function routines_get_list(req, res) {
 exports.routines_post_add = async function routines_post_add(req, res) {
     const q = req.query;
     q.name = "Routine name";
-    q.actionService = "twitter";
-    q.actionTrigger = "new_tweet";
-    q.reactionService = "twitter";
-    q.reactionTrigger = "new_tweet";
+    q.actionService = about.server.services[0].id;
+    q.reactionService = about.server.services[0].id;
+    q.actionTrigger = about.server.services[0].actions[0].id;
+    q.reactionTrigger = about.server.services[0].reactions[0].id;
+    q.actionParams = [];
+    q.reactionParams = [];
     try {
         let user = req.user;
         user.routines_list.push(q);
@@ -80,6 +84,10 @@ exports.routines_patch_edit = async function routines_patch_edit(req, res) {
                 user.routines_list.find(el => el.id === q.id).actionTrigger = q.actionTrigger;
             if (q.reactionTrigger)
                 user.routines_list.find(el => el.id === q.id).reactionTrigger = q.reactionTrigger;
+            if (q.actionParams)
+                user.routines_list.find(el => el.id === q.id).actionParams = q.actionParams;
+            if (q.reactionParams)
+                user.routines_list.find(el => el.id === q.id).reactionParams = q.reactionParams;
         } else {
             return res.status(400).json({text: "Invalid request no name or state (active: True/False) provided"});
         }

@@ -7,6 +7,8 @@ module.exports = {
     secret: process.env.SECRET,
     hostname: process.env.HOSTNAME,
     interval: process.env.CRONINTERVAL,
+    ytbApiUrl: process.env.YOUTUBEAPI,
+    ytbApiToken: process.env.YTBAPITOKEN,
     mongo: {
         uri: process.env.MONGOURI,
         testURI: process.env.MONGOTESTURI

@@ -6,65 +6,107 @@
     "current_time": 0,
     "services": [
       {
-        "name": "Imgur",
         "id": "imgur",
+        "name": "Imgur",
         "picture": "assets/imgur.png",
         "actions": [
           {
-            "name": "new_post",
-            "description": "The user post something new"
+            "id": "user_new_post",
+            "name": "User new post",
+            "description": "Chosen user posts something new",
+            "returnType": "picture",
+            "parameters": [
+              {
+                "id": "username",
+                "name": "Username",
+                "type": "string"
+              },
+              {
+                "id": "password",
+                "name": "Password",
+                "type": "string"
+              }
+            ]
           }
         ],
         "reactions": [
           {
-            "name": "new_post",
-            "description": "The user post something new"
+            "id": "new_like",
+            "name": "New like",
+            "description": "The user add a like to a chosen user last post",
+            "inputType": "none",
+            "parameters": [
+              {
+                "id": "username",
+                "name": "Username",
+                "type": "string"
+              }
+            ]
           },
           {
-            "name": "new_like",
-            "description": "The user likes someone else's post"
+            "id": "new_post",
+            "name": "New post",
+            "description": "User post a new picture on his profile",
+            "inputType": "picture",
+            "parameters": []
           }
         ]
       },
       {
-        "name": "Spotify",
         "id": "spotify",
+        "name": "Spotify",
         "picture": "assets/spotify.png",
         "actions": [
           {
-            "name": "new_song",
-            "description": "The user add a new song to a playlist"
+            "id": "new_song",
+            "name": "New song in playlist",
+            "description": "The user adds a new song to a playlist",
+            "returnType": "string",
+            "parameters": [
+              {
+                "id": "playlist_name",
+                "name": "Playlist name",
+                "type": "string"
+              }
+            ]
           }
         ],
         "reactions": [
           {
-            "name": "new_song",
-            "description": "The user add a new song to a playlist"
-          },
-          {
-            "name": "like_song",
-            "description": "The user likes a song"
+            "id": "play",
+            "name": "Play music",
+            "inputType": "none",
+            "description": "Start playing music",
+            "parameters": []
           }
         ]
       },
       {
-        "name": "Reddit",
         "id": "reddit",
+        "name": "Reddit",
         "picture": "assets/reddit.png",
         "actions": [
           {
-            "name": "new_post",
-            "description": "The user post something new"
+            "id": "user_new_post",
+            "name": "User new post",
+            "description": "Chosen user post something new",
+            "returnType": "string",
+            "parameters": [
+              {
+                "id": "username",
+                "name": "Username",
+                "type": "string"
+              }
+            ]
           }
         ],
         "reactions": [
           {
-            "name": "new_post",
-            "description": "The user post something new"
-          },
-          {
-            "name": "new_up",
-            "description": "The user up a new post"
+            "id": "new_post",
+            "name": "New post",
+            "description": "The user post something new",
+            "inputType": "string",
+            "parameters": []
           }
         ]
       }

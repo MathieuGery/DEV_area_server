@@ -5,6 +5,7 @@ const httpStatus = require('http-status');
 const APIError = require('../utils/APIError');
 const transporter = require('../services/transporter');
 const config = require('../config');
+const about = require('../about');
 const Schema = mongoose.Schema;
 
 const roles = [
@@ -39,11 +40,12 @@ const userSchema = new Schema({
     },
     routines_list: [{
         name: {type: String, default: 'New routine name'},
-        actionService: {type: String, default: 'twitter'},
-        reactionService: {type: String, default: 'imgur'},
-        actionTrigger: {type: String, default: 'new_tweet'},
-        reactionTrigger: {type: String, default: 'new_post'},
-        params: [{type: String, default: ''}],
+        actionService: {type: String, default: about.server.services[0].id},
+        reactionService: {type: String, default: about.server.services[0].id},
+        actionTrigger: {type: String, default: about.server.services[0].actions[0].id},
+        reactionTrigger: {type: String, default: about.server.services[0].reactions[0].id},
+        actionParams: {type: Array, default: []},
+        reactionParams: {type: Array, default: []},
         active: {type: Boolean, default: false}
     }],
     access_token_list: [{
@@ -52,8 +54,8 @@ const userSchema = new Schema({
         username: {type: 'String'}
     }],
     data: {
-        number_image_imgur: {type: String, default: 0},
-        bio_imgur: {type: String, default: ''}
+        nbPostImgImgur: {type: String, default: 0},
+        likedVids: {type: String, default: 0}
     },
 }, {
     timestamps: true

@@ -21,11 +21,8 @@ function changeBio(username, access_token, nb_images) {
 }
 
 exports.getImgImgurAndChangeBio = function getImgImgurAndChangeBio(doc, req) {
-    let header = {};
     let username = doc.access_token_list.find(el => el.id === 'imgur').username;
     let access_token = doc.access_token_list.find(el => el.id === 'imgur').access_token;
-    header['Authorization'] = 'Bearer ' + access_token;
-    header['Access-Control-Allow-Origin'] = '*';
 
     superagent.get(`${url}3/account/` + username + '/images/count')
         .set({Authorization: 'Bearer ' + access_token})
@@ -34,9 +31,9 @@ exports.getImgImgurAndChangeBio = function getImgImgurAndChangeBio(doc, req) {
                 console.log(resp.body);
             }
             console.log(resp.body);
-            console.log(doc.data.number_image_imgur);
-            if (doc.data.number_image_imgur < resp.body.data) {
-                req.user.data.number_image_imgur = resp.body.data;
+            console.log(doc.data.nbPostImgImgur);
+            if (doc.data.nbPostImgImgur < resp.body.data) {
+                req.user.data.nbPostImgImgur = resp.body.data;
                 req.user.save(function (err) {
                     console.log(err)
                 });
