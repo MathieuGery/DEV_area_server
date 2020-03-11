@@ -13,7 +13,7 @@ function cronTrigger(req) {
     User.findOne({email: req.user.email}, function (err, doc) {
             if (doc.access_token_list.find(el => el.id === 'imgur')) {
                 if (doc.routines_list.find(el => el.actionService === 'imgur' && el.reactionService === 'imgur').active) {
-                    if (doc.routines_list.find(el => el.actionTrigger === 'new_post' && el.reactionTrigger === 'new_post').active) {
+                    if (doc.routines_list.find(el => el.actionTrigger === 'user_new_post' && el.reactionTrigger === 'new_post').active) {
                         imgurAPI.getImgImgurAndChangeBio(doc, req)
                     }
                 }
