@@ -25,7 +25,7 @@ function cronTrigger(req) {
             doc.routines_list.forEach(routine => {
                 if (routine.active) {
                     actionDico.find(el => el.id === routine.actionService + ':' + routine.actionTrigger).value(doc, routine.actionParams).then((res) => {
-                        console.log(res)
+                        console.log(res);
                         if (res.status === true) {
                             reactionDico.find(el => el.id === routine.reactionService + ':' + routine.reactionTrigger).value(doc, routine.reactionParams, res)
                         }

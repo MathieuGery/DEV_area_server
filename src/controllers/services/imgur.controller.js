@@ -49,7 +49,7 @@ exports.checkImgurNewPost = function checkImgurNewPost(doc, actionParams) {
     config['url'] = `${url}3/account/` + username + '/images/count';
 
     return axios(config).then((res) => {
-        console.log(doc.data.nbPostImgImgur)
+        console.log(doc.data.nbPostImgImgur);
         if (doc.data.nbPostImgImgur < res.data.data) {
             doc.data.nbPostImgImgur = res.data.data;
             doc.save(function (err) {

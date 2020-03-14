@@ -13,32 +13,21 @@
           {
             "id": "user_new_post",
             "name": "User new post",
-            "description": "Chosen user posts something new",
+            "description": "Authenticated user posts something new",
             "returnType": "picture",
-            "parameters": [
-              {
-                "id": "username",
-                "name": "Username",
-                "type": "string"
-              },
-              {
-                "id": "password",
-                "name": "Password",
-                "type": "string"
-              }
-            ]
+            "parameters": []
           }
         ],
         "reactions": [
           {
-            "id": "new_like",
-            "name": "New like",
-            "description": "The user add a like to a chosen user last post",
+            "id": "change_bio",
+            "name": "Change user biography",
+            "description": "Change the user biography to specified phrase",
             "inputType": "none",
             "parameters": [
               {
-                "id": "username",
-                "name": "Username",
+                "id": "bio",
+                "name": "Biography content",
                 "type": "string"
               }
             ]
@@ -48,24 +37,37 @@
             "name": "New post",
             "description": "User post a new picture on his profile",
             "inputType": "picture",
-            "parameters": []
+            "parameters": [
+              {
+                "id": "picture",
+                "name": "Picture URL link",
+                "type": "string"
+              }
+            ]
           }
         ]
       },
       {
-        "id": "spotify",
-        "name": "Spotify",
-        "picture": "assets/spotify.png",
+        "id": "gmail",
+        "name": "Gmail",
+        "picture": "assets/gmail.png",
         "actions": [
           {
-            "id": "new_song",
-            "name": "New song in playlist",
-            "description": "The user adds a new song to a playlist",
+            "id": "new_inbox_mail",
+            "name": "Receive new mail",
+            "description": "The user receives a mail",
+            "returnType": "string",
+            "parameters": []
+          },
+          {
+            "id": "new_inbox_mail_from_user",
+            "name": "Receive new mail from user",
+            "description": "The user receives a mail from a specified user",
             "returnType": "string",
             "parameters": [
               {
-                "id": "playlist_name",
-                "name": "Playlist name",
+                "id": "usermail",
+                "name": "User e-mail address",
                 "type": "string"
               }
             ]
@@ -82,31 +84,59 @@
         ]
       },
       {
-        "id": "reddit",
-        "name": "Reddit",
-        "picture": "assets/reddit.png",
+        "id": "spotify",
+        "name": "Spotify",
+        "picture": "assets/spotify.png",
         "actions": [
           {
-            "id": "user_new_post",
-            "name": "User new post",
-            "description": "Chosen user post something new",
-            "returnType": "string",
-            "parameters": [
-              {
-                "id": "username",
-                "name": "Username",
-                "type": "string"
-              }
-            ]
+            "id": "music_playing",
+            "name": "Music starts playing",
+            "description": "Music starts playing on the user Spotify account",
+            "returnType": "none",
+            "parameters": []
           }
         ],
         "reactions": [
           {
-            "id": "new_post",
-            "name": "New post",
-            "description": "The user post something new",
-            "inputType": "string",
+            "id": "play_music",
+            "name": "Play music",
+            "description": "Start playing music",
+            "inputType": "none",
             "parameters": []
+          }
+        ]
+      },
+      {
+        "id": "youtube",
+        "name": "Youtube",
+        "picture": "assets/youtube.png",
+        "actions": [
+          {
+            "id": "new_liked_video",
+            "name": "New liked video",
+            "description": "The user liked a new youtube video",
+            "returnType": "string",
+            "parameters": []
+          }
+        ],
+        "reactions": [
+          {
+            "id": "comment_user_last_video",
+            "name": "Comment user last video",
+            "inputType": "none",
+            "description": "Add a specified comment to a specified user last video",
+            "parameters": [
+              {
+                "id": "user",
+                "name": "User channel name",
+                "type": "string"
+              },
+              {
+                "id": "comment",
+                "name": "Comment content",
+                "type": "string"
+              }
+            ]
           }
         ]
       }

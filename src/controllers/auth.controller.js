@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../config');
 const httpStatus = require('http-status');
 const uuidv1 = require('uuid/v1');
-const cronTrigger = require('./services/imgur.controller')
+const cronTrigger = require('./services/imgur.controller');
 
 exports.register = async (req, res, next) => {
     try {

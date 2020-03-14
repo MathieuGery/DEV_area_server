@@ -21,4 +21,4 @@ exports.checkLikedVids = function checkLikedVids(doc, actionParams) {
                 });
             }
         });
-}
+};
