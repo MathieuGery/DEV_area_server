@@ -73,36 +73,39 @@
             ]
           }
         ],
-        "reactions": [
-          {
-            "id": "play",
-            "name": "Play music",
-            "inputType": "none",
-            "description": "Start playing music",
-            "parameters": []
-          }
-        ]
+        "reactions": []
       },
       {
         "id": "spotify",
         "name": "Spotify",
         "picture": "assets/spotify.png",
-        "actions": [
-          {
-            "id": "music_playing",
-            "name": "Music starts playing",
-            "description": "Music starts playing on the user Spotify account",
-            "returnType": "none",
-            "parameters": []
-          }
-        ],
+        "actions": [],
         "reactions": [
           {
-            "id": "play_music",
-            "name": "Play music",
-            "description": "Start playing music",
+            "id": "follow_playlist",
+            "name": "Follow a playlist",
+            "description": "Add a specified playlist to your music tab",
             "inputType": "none",
-            "parameters": []
+            "parameters": [
+              {
+                "id": "playlist_id",
+                "name": "Playlist ID",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "id": "follow_artist",
+            "name": "Follow artist",
+            "description": "Follow a specified artist",
+            "inputType": "none",
+            "parameters": [
+              {
+                "id": "artist_name",
+                "name": "Artist name",
+                "type": "string"
+              }
+            ]
           }
         ]
       },
@@ -119,26 +122,7 @@
             "parameters": []
           }
         ],
-        "reactions": [
-          {
-            "id": "comment_user_last_video",
-            "name": "Comment user last video",
-            "inputType": "none",
-            "description": "Add a specified comment to a specified user last video",
-            "parameters": [
-              {
-                "id": "user",
-                "name": "User channel name",
-                "type": "string"
-              },
-              {
-                "id": "comment",
-                "name": "Comment content",
-                "type": "string"
-              }
-            ]
-          }
-        ]
+        "reactions": []
       }
     ]
   }

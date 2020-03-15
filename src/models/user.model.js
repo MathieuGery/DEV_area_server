@@ -55,7 +55,9 @@ const userSchema = new Schema({
     }],
     data: {
         nbPostImgImgur: {type: String, default: 0},
-        likedVids: {type: String, default: 0}
+        likedVids: {type: String, default: 0},
+        lastMailId: {type: String, default: ''},
+        lastMailIdFromUser: {type: String, default: 0},
     },
 }, {
     timestamps: true
@@ -83,15 +85,6 @@ userSchema.post('save', async function saved(doc, next) {
             subject: 'Confirm creating account',
             html: `<div><h1>Hello new user!</h1><p>Click <a href="${config.hostname}/api/auth/confirm?key=${this.activationKey}">link</a> to activate your new account.</p></div><div><h1>Hello developer!</h1><p>Feel free to change this template ;).</p></div>`
         };
-
-        transporter.sendMail(mailOptions, function (error, info) {
-            if (error) {
-                console.log(error)
-            } else {
-                console.log('Email sent: ' + info.response)
-            }
-        });
-
         return next()
     } catch (error) {
         return next(error)

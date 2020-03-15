@@ -52,7 +52,7 @@ router.post('/setToken', auth(), (req, res) => {
         } else
             user.access_token_list.push(q);
         user.save(function (err) {
-            console.log(err)
+            console.log("mabite", err)
         });
         let result = {
             status: 'success',
